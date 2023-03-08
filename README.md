@@ -1,8 +1,8 @@
 # ReinoTrebolBackend
 
 **Requisitos**
-+SQL Server Management Studio
-+.NET CORE 6
+*SQL Server Management Studio
+*.NET CORE 6
 
 **Pasos**
 
