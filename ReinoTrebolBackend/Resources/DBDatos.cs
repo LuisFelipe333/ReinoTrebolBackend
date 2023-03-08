@@ -7,7 +7,7 @@ namespace ReinoTrebolBackend.Resources
     public class DBDatos
     {
         //public static string cadenaConexion = "Data Source=.;Initial Catalog=Test;User ID=angels;Password=123.";
-        public static string cadenaConexion = "Data Source=.;Initial Catalog=test;User ID=sa;Password=pokemon3";
+        public static string cadenaConexion = "Data Source=.;Initial Catalog=test;User ID=;Password=";
         public static DataSet ListarTablas(string nombreProcedimiento, List<Parametro> parametros = null)
         {
             SqlConnection conexion = new SqlConnection(cadenaConexion);
