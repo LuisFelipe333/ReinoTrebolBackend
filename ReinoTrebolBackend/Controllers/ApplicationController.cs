@@ -77,7 +77,34 @@ namespace ReinoTrebolBackend.Controllers
             return message;
         }
 
-        
+        [HttpPut]
+        [Route("ActualizarEstatus")]
+        public dynamic UpdateStatus(int id, bool status)
+        {
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                    new Parametro("@iId", id.ToString()),
+                    new Parametro("@bStatus", status ? "1" : "0"),                    
+            };
+
+            dynamic sucess = DBDatos.Ejecutar("UpdateStatus", parametros);
+            string message = sucess.message;
+            return message;
+        }
+
+        [HttpDelete]
+        [Route("EliminarSolicitud")]
+        public dynamic DeleteApplication(int id) 
+        {
+            List<Parametro> parametros = new List<Parametro>()
+            {
+                    new Parametro("@iId", id.ToString()),
+            };
+
+            dynamic sucess = DBDatos.Ejecutar("DeleteApplication", parametros);
+            string message = sucess.message;
+            return message;
+        }
 
 
 
