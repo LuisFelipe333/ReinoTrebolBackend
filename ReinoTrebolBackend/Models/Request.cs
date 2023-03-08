@@ -2,14 +2,14 @@
 
 namespace ReinoTrebolBackend.Models
 {
-    public class Application
+    public class Request
     {
-        public int idSolicitud { get; set; }
+        public int id { get; set; }
         public string name { get; set; }
         public string lastName { get; set; }
         public string identification { get; set; }
         public int age { get; set; }
-        public string magicalAff { get; set; }
+        public MagicalAff magicalAff { get; set; }
         public bool status { get; set; }
         public GrimoireLevel grimoireLevel { get; set;}
     }
