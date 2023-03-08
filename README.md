@@ -1,10 +1,10 @@
 # ReinoTrebolBackend
 
-#Requisitos
+##Requisitos
 -SQL Server Management Studio
 -.NET CORE 6
 
-#Pasos
+##Pasos
 
 -Clonar el repositorio https://github.com/LuisFelipe333/ReinoTrebolBackend.git
 -Crear una base de datos de nombre test en el SQL SMS
