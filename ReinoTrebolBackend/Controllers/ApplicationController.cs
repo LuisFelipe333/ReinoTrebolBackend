@@ -106,6 +106,15 @@ namespace ReinoTrebolBackend.Controllers
             return message;
         }
 
+        [HttpGet]
+        [Route("ConsultarGrimorios")]
+        public dynamic GetGrimoires()
+        {
+            DataTable dtGrimoires = DBDatos.Listar("GetGrimoires");
+            string jsonGrimoires = JsonConvert.SerializeObject(dtGrimoires);
+            return JsonConvert.DeserializeObject<List<VisGrimoires>>(jsonGrimoires);
+        }
+
 
 
 

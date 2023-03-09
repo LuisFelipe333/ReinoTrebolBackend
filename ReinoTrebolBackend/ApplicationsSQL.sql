@@ -21,6 +21,19 @@ BEGIN
 END
 GO
 
+
+CREATE TABLE [dbo].[grimoires](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[applicationId] [int] NOT NULL,
+	[grimoireLevel] [varchar](13) NOT NULL,
+ CONSTRAINT [PK_grimoires] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
 CREATE PROCEDURE [dbo].[AddApplications] 
 @sName varchar(20),
 @sLastName varchar(20),
@@ -31,8 +44,12 @@ CREATE PROCEDURE [dbo].[AddApplications]
 @iGrimoireLevel varchar(13)
 AS
 BEGIN
+	DECLARE @applicationId int
 	INSERT applications (name, lastName, identification, age, magicalAff, status, grimoireLevel) 
-	VALUES (@sName, @sLastName, @sIdentification, @iAge, @sMagicalAff, @bStatus, @iGrimoireLevel)
+	VALUES (@sName, @sLastName, @sIdentification, @iAge, @sMagicalAff, @bStatus, @iGrimoireLevel)	
+	SET @applicationId = SCOPE_IDENTITY();
+	INSERT grimoires (applicationId, grimoireLevel) 
+	VALUES (@applicationId, @iGrimoireLevel)
 END
 GO
 
@@ -75,3 +92,8 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE [dbo].[GetGrimoires]
+AS
+BEGIN
+	SELECT * FROM grimoires
+END
