@@ -14,8 +14,7 @@
 
 -Ejecutar el archivo ApplicationsSQL.sql en el SQL SMS
 
-![SQLSERVER](https://user-images.githubusercontent.com/71108533/223601004-ac5a7603-2d9e-4efe-80b5-791164edcf09.png)
-
+![SQLSERVER](https://user-images.githubusercontent.com/71108533/223888084-a32c978e-458e-4849-b34b-62c2968afad7.png)
 
 -En el archivo DBDatos.cs en la carpeta resources cambiar el User ID y la Password dependiendo de sus datos.
 
