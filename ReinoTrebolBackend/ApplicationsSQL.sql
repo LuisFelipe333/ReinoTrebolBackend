@@ -97,3 +97,13 @@ AS
 BEGIN
 	SELECT * FROM grimoires
 END
+GO
+
+CREATE PROCEDURE [dbo].[GetApplicationById]
+@iId int
+AS
+BEGIN
+	SELECT * FROM applications
+	WHERE id = @iId
+END
+GO
