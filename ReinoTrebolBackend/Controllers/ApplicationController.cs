@@ -20,6 +20,7 @@ namespace ReinoTrebolBackend.Controllers
         {
             DataTable dtApplications = DBDatos.Listar("GetApplications");
             string jsonApplications = JsonConvert.SerializeObject(dtApplications);
+            int size = dtApplications.Rows.Count;
             return JsonConvert.DeserializeObject<List<Request>>(jsonApplications);
         }
 
@@ -62,6 +63,19 @@ namespace ReinoTrebolBackend.Controllers
         [Route("ActualizarSolicitud")]
         public dynamic UpdateApplication(Request application)
         {
+            List<Parametro> comprobacionPar = new List<Parametro>()
+            {
+                    new Parametro("@iId", application.id.ToString())                    
+            };
+
+            DataTable dtApplications = DBDatos.Listar("GetApplicationById", comprobacionPar);
+
+            if(dtApplications.Rows.Count < 1)
+            {
+                return BadRequest("Solicitud no encontrada");
+            }
+
+
             List<Parametro> parametros = new List<Parametro>()
             {
                     new Parametro("@iId", application.id.ToString()),
