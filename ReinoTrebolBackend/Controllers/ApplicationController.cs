@@ -95,6 +95,18 @@ namespace ReinoTrebolBackend.Controllers
         [Route("ActualizarEstatus")]
         public dynamic UpdateStatus(int id, bool status)
         {
+            List<Parametro> comprobacionPar = new List<Parametro>()
+            {
+                    new Parametro("@iId", id.ToString())
+            };
+
+            DataTable dtApplications = DBDatos.Listar("GetApplicationById", comprobacionPar);
+
+            if (dtApplications.Rows.Count < 1)
+            {
+                return BadRequest("Solicitud no encontrada");
+            }
+
             List<Parametro> parametros = new List<Parametro>()
             {
                     new Parametro("@iId", id.ToString()),
